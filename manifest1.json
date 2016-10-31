@@ -1,0 +1,72 @@
+{
+	"manifests": {
+		"manifest": {
+			"standardVersions": "ocdxManifest schema v.1 SWE_Group10",
+			"id": "https://datahub.io/dataset/bigdata_analysis_security",
+			"creator": "Group 10",
+			"dateCreated": "2016-30-10",
+			"comment": "This is first dumb data by group 10",
+			"researchObject": {
+				"title": "Big Data Security",
+				"abstract": "The term big data has come into use recently to refer to the ever-increasing amount of information that organisations are storing, processing and analysing, owing to the growing number of information sources in use",
+				"dates": {
+					"date": {
+						"date": "2015 - 02 - 07",
+						"label": "created"
+					}
+				}
+			},
+			"privacyEthics": {
+				"oversight": {
+					"label": "REC"
+				}
+			},
+			"informedConsent": "No assertion",
+			"anonymizedData": {
+				"label": "No assertion"
+			},
+			"privacyConsiderations": "No assertion"
+		},
+		"provenance": {
+			"narrative": "As data volumes continue to expand, as they take in an ever wider range of data sources, much of which is in unstructured form, organisations are increasingly looking to extract value from that data to uncover the opportunities for the business that it contains. However, traditional data storage and analysis tools are not, on their own, up to the task of processing and analysing the information the data contains, owing not just to the volume of data, but also to the unstructured, ad hoc nature of much of the content. In addition, the centralised nature of big data stores creates new security challenges to which organisations must respond, which require that controls are placed around the data itself, rather than the applications and systems that store the data."
+		},
+		"publications": {
+			"publication": "Tankard, C., Big Data Security (2012), Network Security, DOI: 10.1016/S1353-4858(12)70063-6 "
+		},
+		"locations": {
+			"location": {
+				"url": "http://www.sciencedirect.com/science/article/pii/S1353485812700636",
+				"comment": ""
+			}
+		},
+		"files": {
+			"file": {
+				"name": "bigData - data20151010.csv"
+			},
+			"format": ".csv",
+			"abstract": "Metadata for 23rd finding",
+			"size": "12,345",
+			"url": "No assertion",
+			"checksum": "No assertion"
+		},
+		"permissions": "No assertion"
+	},
+	"dates": {
+		"date": {
+			"date": "2016-10-10"
+		},
+		"label": "Created"
+	},
+	"creators": {
+		"creator": {
+			"name": "Collin Tankard",
+			"role": {
+				"label": "Primary Investigator"
+			}
+		},
+		"type": {
+			"label": "University Of Missouri"
+		},
+		"contact": "collin.tankard@missouri.edu"
+	}
+}
