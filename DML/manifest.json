@@ -1,0 +1,127 @@
+{ 
+	"manifests": [  
+      {  
+         "standardsVersion": "v0.0.1",
+         "id":"1111201601",
+         "creator":"Sean",
+         "dateCreated":"11/11/2016",
+         "researchObject":{  
+            "title":"Malware Security",
+            "creators":[  
+               {  
+                  "name":"David Saws",
+                  "email":"saws.david@missouri.edu"
+               },
+               {  
+                  "name":"Vincent Bros",
+                  "email":"bros.vincent@missouri.edu"
+               }
+            ],
+            "dates":{
+               "dateCreated":"2016-30-10"
+            },
+            "provenance":{  
+               "narrative":"full details in paper"
+            },
+            "bibliographicCitations":[  
+               "Susan, B. M. (2009). Malware and Virus Analysis. Journal of Studies in International Technology, 7(4), 379-403. doi:10.1177/102831543532257120",
+               "Tricia, K. A. (2013).  Information Security System. Journal of Research in Computer Science, 5, 131-126. doi:10.1177/147524090606558954325342"
+            ],
+            "distributions":[  
+               {  
+                  "uri":"https://datahub.io/dataset/malware_analysis",
+                  "comment":"Folder with 15 findings data"
+               }
+            ],
+            "files":[  
+               {  
+                  "name":"2015ResearchDataCollection.json.txt",
+                  "format":"json",
+                  "abstract":"Contains data collection for the research analysis",
+                  "size":"78 K",
+                  "uri":"https://datahub.io/dataset/malware_analysis/2015ResearchDataCollection.json",
+                  "permissions":"Open Database License 2.0",
+                  "dates":
+                     {
+                        "dateCreated":"2015-10-10"
+                     }
+               },
+               {  
+                  "name":"2015ResearchAnalysis.tsv.txt",
+                  "format":"tsv",
+                  "abstract":"Contains the result of research analysis",
+                  "size":"256 K",
+                  "uri":"https://datahub.io/dataset/malware_analysis/2015ResearchAnalysis.json",
+                  "permissions":"Open Database License 1.0",
+                  "dates":
+                     {
+                        "dateCreated":"2015-10-11"
+                     }
+               }
+            ]
+         }
+      }, 
+        {  
+         "standardsVersion": "v0.1.2",
+         "id":"1112201601",
+         "creator":"Goggins",
+         "dateCreated":"11/12/2016",
+         "researchObject":{  
+            "title":"Big Data Security",
+            "creators":[  
+               {  
+                  "name":"Collin Tankard",
+                  "email":"tankard.collin@missouri.edu"
+               },
+               {  
+                  "name":"Jillian William",
+                  "email":"william.jillian@missouri.edu"
+               }
+            ],
+            "dates":{
+               "dateCreated":"2016-10-10"
+            },
+            "provenance":{  
+               "narrative":"full details in paper"
+            },
+            "bibliographicCitations":[  
+               "Trice, A. G. (2003). Security in Big Data. Journal of Studies in International Technology, 7(4), 379-403. doi:10.1177/1028315303257120",
+               "Andrade, M. S. (2006, July 19). The use of Big Data in System Security. Journal of Research in Computer Science, 5, 131-126. doi:10.1177/1475240906065589"
+            ],
+            "distributions":[  
+               {  
+                  "uri":"https://datahub.io/dataset/bigdata_analysis_security",
+                  "comment":"Folder with 15 data files"
+               }
+            ],
+            "files":[  
+               {  
+                  "name":"2015ResearchDataCollection.json.txt",
+                  "format":"json",
+                  "abstract":"Contains data collection for the research analysis",
+                  "size":"78 K",
+                  "uri":"https://datahub.io/dataset/bigdata_analysis_security/2015ResearchDataCollection.json",
+                  "permissions":"Open Database License 2.0",
+                  "dates":
+                     {
+                        "dateCreated":"2015-10-10"
+                     }
+               },
+               {  
+                  "name":"2015ResearchAnalysis.tsv.txt",
+                  "format":"tsv",
+                  "abstract":"Contains insults gleaned from messages sent to the LKML mailing list by Linus Torvalds during the year 2013",
+                  "size":"256 K",
+                  "uri":"https://datahub.io/dataset/bigdata_analysis_security/2015ResearchAnalysis.tsv.txt",
+                  "permissions":"Open Database License 1.0",
+                  "dates":
+                     {
+                        "dateCreated":"2015-10-11"
+                     }
+               }
+            ]
+         }
+      }
+      
+   ]
+}
