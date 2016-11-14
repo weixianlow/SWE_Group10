@@ -14,21 +14,16 @@
 
 	<div class = "container middle-div">
 		<div class="login-page">
+
 		  	<div class="form">
-			<h3 class="title">Register</h3>
-		    	<form class="login-form">
-			      	<input type="text" placeholder="First Name"/>
-			      	<input type="text" placeholder="Last Name"/>
-			      	<input type="text" placeholder="Email Address"/>
-			      	<input type="text" placeholder="Username"/>
-			      	<input type="password" placeholder="Password"/>
-			      	<input type="text" placeholder="Access Code"/>
-			      	<div>
-				      	<button style="display: inline;">Create Account</button>
-				      	<br>
-				      	<br>
-				      	<button style="display: inline;">Cancel</button>
-			      	</div>
+				<h3 class="title">Login</h3>
+			    <form class="login-form" action = "/public/login.php" method = "POST">
+			      	<input type="text" placeholder="username" name = "username"/>
+			      	<input type="password" placeholder="password" name = "password"/>
+			      	<input class="button" type="submit" name="login" value="Login"/>
+			      	<button>login</button>
+			      	<p class="message">Not registered?</p>
+			      	<p class="message">Register as a <a href="/public/newUser.php">Student</a> or <a href="/public/newResearcher.php">Researcher</a></p>
 			    </form>
 	  		</div>
 		</div>
