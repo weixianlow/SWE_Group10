@@ -1,34 +1,31 @@
 <?php
-       
-	$username = $_POST['username'];
+    
+	$inputUsername = $_POST['username'];
     $pass = $_POST['password'];
         
     $m = new MongoClient();
-    echo 'successful connection to database';
+   
     $db = $m->SWE;
     $c = $db->user;
 
-    $user = $c->find('username' => $username);
-    
-    var_dump($user);
+    $query = array('username' => $inputUsername);
+    $cursor = $c->find($query);  
 
-
-    //get salt and hashed_passwor, first name from db
-
+    foreach ($cursor as $doc){        
+        extract($doc);        
+    }
 
     if(password_verify($salt.$pass, $hashed_password)){          //session start
         
         session_start();
         $_SESSION["username"] = $username;
-        $_SESSION["permission"] = $permission;
-        $_SESSION["name"] = $name_first;
-        header("Location: /BrowseManifest.php/");   
+        $_SESSION["permission"] = $permission_level;
+        $_SESSION["name"] = $fname;
+        header("Location: /html/uploadCreate.php");   
             
 	}else{
         echo 'Invalid login.';
-        echo '<a href = "/index.php/">Back to Login</a>';
-    }
- 
-       
+        echo '<a href = "/html/index.html">Back to Login</a>';
+    }       
     	
 ?>	
