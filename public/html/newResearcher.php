@@ -24,12 +24,13 @@
 			      	<input type="password" placeholder="Password" name = "password"/>
 			      	<input type="text" placeholder="Access Code" name = "code"/>
 			      	<div>
-				      	<button style="display: inline;">Create Account</button>
+				      	<button type = "submit" name = "submit" style="display: inline;">Create Account</button>
 				      	<br>
 				      	<br>
-				      	<button style="display: inline;">Cancel</button>
+				      	
 			      	</div>
 			    </form>
+			    <a href = "/html/index.html">Cancel</button>
 	  		</div>
 		</div>
 			<?php
@@ -42,15 +43,32 @@
 					$fname = $_POST['fname'];
 					$lname = $_POST['lname'];
 					$permission = 1;
+					$code = $_POST['code'];
 
 					$user = array("username" => $username, "salt" => $salt, "hashed_password" => $hpass, "email" => $email, "fname" => $fname, "lname" => $lname, "permission_level" => $permission);
 
 					$m = new MongoClient();
     				echo 'successful connection to database';
     				$db = $m->SWE;
-    				$c = $db->user;
 
-    				$c->insert($user);
+    				$codes = $db->AccessCodes;
+    				$codequery = array('value' => $code);
+    				$match = $codes->find($codequery);
+
+    				foreach ($match as $find){
+    					$c = $db->user;
+    					$c->insert($user);
+    					echo 'user registered!';   					
+    				}
+
+    				//need negative feedback if wrong code used
+    			
+    				//else
+    				//{
+    			//		echo 'invalid code';
+    			//	}
+
+    			
 				}
 			?>
 	</div>

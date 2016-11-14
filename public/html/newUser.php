@@ -26,9 +26,10 @@
 				      	<button type = "submit" name = "submit" style="display: inline;">Create Account</button>
 				      	<br>
 				      	<br>
-				      	<button style="display: inline;">Cancel</button>
+				      	
 			      	</div>
 			    </form>
+			    <a href = "/html/index.html">Cancel</button>
 	  		</div>
 		</div>
 
