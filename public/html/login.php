@@ -21,11 +21,11 @@
         $_SESSION["username"] = $username;
         $_SESSION["permission"] = $permission_level;
         $_SESSION["name"] = $fname;
-        header("Location: /html/uploadCreate.php");   
+        header("Location: /html/index.php");   
             
 	}else{
         echo 'Invalid login.';
-        echo '<a href = "/html/index.html">Back to Login</a>';
+        echo '<a href = "/html/login.html">Back to Login</a> <a href = "/html/index.php">Back to Home</a>';
     }       
     	
 ?>	

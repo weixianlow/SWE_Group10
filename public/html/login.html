@@ -17,12 +17,12 @@
 
 		  	<div class="form">
 				<h3 class="title">Login</h3>
-			    <form class="login-form">
-			      	<input type="text" placeholder="username"/>
-			      	<input type="password" placeholder="password"/>
-			      	<button>login</button>
+			    <form class="login-form" action = "login.php" method = "POST">
+			      	<input type="text" placeholder="username" name = "username"/>
+			      	<input type="password" placeholder="password" name = "password"/>			      	
+			      	<button type = "submit" name = "login">login</button>
 			      	<p class="message">Not registered?</p>
-			      	<p class="message">Register as a <a href="#">Student</a> or <a href="#">Researcher</a></p>
+			      	<p class="message">Register as a <a href="/html/newUser.php">Student</a> or <a href="/html/newResearcher.php">Researcher</a></p>
 			    </form>
 	  		</div>
 		</div>
