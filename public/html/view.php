@@ -1,3 +1,17 @@
+<?php  
+    session_start();
+    $username = $_SESSION['username'];
+    $permission_level = $_SESSION['permission'];
+    $name = $_SESSION['name'];
+
+    if($name == ''){
+    	$permission_level = 0;
+    	echo 'Welcome Guest! <a href = "/html/login.html">Login</a><br><br> Need an Account? Register as a <a href = "/html/newUser.php">Student</a> or <a href = "/html/newResearcher.php">Researcher</a>';
+
+    }else{
+    	echo 'Welcome, ' . $name . '! <a href = "/html/logout.php/">Log Out</a>';
+	}	
+?>
 <html>
 <head>
 <title>Hello World, CS4320!</title>

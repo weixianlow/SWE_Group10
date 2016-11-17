@@ -42,7 +42,7 @@
 					$email = $_POST['email'];
 					$fname = $_POST['fname'];
 					$lname = $_POST['lname'];
-					$permission = 1;
+					$permission = 2;
 					$code = $_POST['code'];
 
 					$user = array("username" => $username, "salt" => $salt, "hashed_password" => $hpass, "email" => $email, "fname" => $fname, "lname" => $lname, "permission_level" => $permission);
