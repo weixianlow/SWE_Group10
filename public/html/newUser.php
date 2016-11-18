@@ -26,9 +26,10 @@
 				      	<button type = "submit" name = "submit" style="display: inline;">Create Account</button>
 				      	<br>
 				      	<br>
-				      	<button style="display: inline;">Cancel</button>
+				      	
 			      	</div>
 			    </form>
+			    <a href = "/html/index.html">Cancel</button>
 	  		</div>
 		</div>
 
@@ -41,7 +42,7 @@
 					$email = $_POST['email'];
 					$fname = $_POST['fname'];
 					$lname = $_POST['lname'];
-					$permission = 0;
+					$permission = 1;
 
 					$user = array("username" => $username, "salt" => $salt, "hashed_password" => $hpass, "email" => $email, "fname" => $fname, "lname" => $lname, "permission_level" => $permission);
 
