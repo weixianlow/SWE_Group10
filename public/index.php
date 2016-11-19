@@ -55,21 +55,40 @@
 		</div>
 		<br>
 		<br>
-		<div class="well">
-			<button class="col-md-3" type="submit" name="create_new_manifest">Create New Manifest</button>
+		<div class="well">			
+			<form method = "POST" action = "/html/uploadCreate.php">
+				<button class="col-md-2" type="submit" name="upload_manifest">New Manifest</button>
+			</form>
 			<br>
 			<hr style="border-top-color:black;">
 			<div>
 				List:
-				<div class="well row">
-					<div class="col-md-9">
-						Meta data
-					</div>
-					<div class="col-md-3">
-						<button>Update</button>
-						<button>Delete</button>
-					</div>
-				</div>
+				
+					<?php
+					//get all manifests from manifest collection and post links to view with manifest data
+    				$m = new MongoClient();   
+    				$db = $m->SWE;
+    				$c = $db->manifest;    				
+
+    				$cursor = $c->find();
+
+    				foreach($cursor as $doc){	
+    					
+    					extract($doc);   					
+    					session_name("manifest_view");
+    					session_start();
+    					$_SESSION["doc"] = $doc;
+    					echo '<div class="well row">
+					<ul><li style = "list-style-type: none;"><div class = "col-md-9">
+
+    							<a href = "/html/view.php">' . $manifest['researchObject']['title'] . '</a>
+    							</div></li>	</ul>
+					
+				</div>';
+    				}
+
+					?>
+				
 				<div class="well row">
 					<div class="col-md-9">
 						<p>Meta data</p>
@@ -78,8 +97,7 @@
 						<p>Other Stuff</p>
 					</div>
 					<div class="col-md-3">
-						<button>Update</button>
-						<button>Delete</button>
+						
 					</div>
 				</div>
 			</div>

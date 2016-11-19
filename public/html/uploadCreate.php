@@ -1,3 +1,4 @@
+
 <?php    
     session_start();
     $username = $_SESSION['username'];
@@ -34,6 +35,7 @@
 
 	    <input type="file" name="ufile" \><br><br> 
 	    <input type="submit" value="Upload" name="submit"\>
+
 
 	</form>
 
@@ -205,3 +207,4 @@ if(isset($_POST["submit"])){
 </div>
 </body>
 </html>
+>>>>>>> master
