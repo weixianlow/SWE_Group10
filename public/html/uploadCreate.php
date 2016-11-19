@@ -118,13 +118,15 @@ if(isset($_POST["submit"])){
                   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                   <p> Data inserted into the database!</p>
                 </div>';
-              //echo '<pre>';
-              //print_r($json);
-              //echo '</pre>';
+
+
+              echo '<pre>';
+              print_r($json);
+              echo '</pre>';
 
           
 
-                         
+              /*           
              foreach ($json as $key => $value) {
                   if (is_array($value)) {
                     foreach ($value as $key => $val) {
@@ -139,7 +141,7 @@ if(isset($_POST["submit"])){
                   
               }
 
-
+*/
 
 
        }
