@@ -16,6 +16,10 @@
 
 <!DOCTYPE html>
 <html>
+
+ <form method = "POST" action = "/html/index.php">
+        <button class="col-md-1" type="submit" name="upload_manifest">Return</button>
+        </form>
 <head>
 <title>Upload Manifest</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -30,6 +34,7 @@
 <br>
 <br>
 <div class="well">
+
 	<h2><b>Upload Manifest</b></h2><br>
 	<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">
 
@@ -38,6 +43,12 @@
 
 
 	</form>
+	<br>
+      <form method = "POST" action = "/html/index.php">
+        <button class="col-md-1" type="submit" name="upload_manifest">Cancel</button>
+      </form>
+      <br>
+      <br>
 
 </div>
 
@@ -94,7 +105,7 @@ if(isset($_POST["submit"])){
         
             echo '<div class="alert alert-info">
               		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-              		<p> File UPLOADED!</p>
+              		<p> File ' . $newName . ' UPLOADED!</p>
             	  </div>';
 
               // connect to mongodb
@@ -114,33 +125,38 @@ if(isset($_POST["submit"])){
 
              $json = json_decode($fileContent);
              
+             //$doc = array($json);
             
-             $collection->insert(array($json));
+             $collection->insert($json);
              echo'<div class="alert alert-info">
                   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                   <p> Data inserted into the database!</p>
                 </div>';
-              //echo '<pre>';
-              //print_r($json);
-              //echo '</pre>';
+              
+
+            // foreach ($json as $key => $value) {
+            //       if (is_array($value)) {
+            //               foreach ($value as $key2 => $val => $va) {
+            //               echo $key . '= ' 
+            //               echo $val . '= ' . $va . '<br/>';
+            //          }
+            //         } else {
+                      
+            //           echo $key . ': ' . $value . '<br/>'; 
+            //       }
+                  
+            //   }
+            //  }
+                
+              echo ' <div class="well">  <h2>Details</h2>';
+              echo '<pre>';
+              print_r($json);
+              echo '</pre> </div>';
 
           
 
-                         
-             foreach ($json as $key => $value) {
-                  if (is_array($value)) {
-                    foreach ($value as $key => $val) {
-                          echo $key . '= ' . $val . '<br/>';
-                     
-                    }
-                  } 
-                  else 
-                  {
-                      echo $key . ': ' . $value . '<br/>'; 
-                  }
-                  
-              }
-
+                        
+             
 
 
 
@@ -164,44 +180,18 @@ if(isset($_POST["submit"])){
 
 ?>
 
-  <h2>Details</h2>
+
     <div class="well">
-      <div class="well">
-        <p>Manifest Name: kdlfd</p>
-        <p>Author Name: kdlfd</p>
-        <p>Date: kdlfd</p>
-      </div>
-      <div class="well">
-        <p>A lot of JSON</p>
-        <p>A lot of dfd</p>
-        <p>A lot of fdfd</p>
-        <p>A lot of sdsf</p>
-        <p>A lot of fddeeeee</p>
-        <p>A lot of JSON</p>
-        <p>A lot of dfd</p>
-        <p>A lot of fdfd</p>
-        <p>A lot of sdsf</p>
-        <p>A lot of fddeeeee</p>
-        <p>A lot of JSON</p>
-        <p>A lot of dfd</p>
-        <p>A lot of fdfd</p>
-        <p>A lot of sdsf</p>
-        <p>A lot of fddeeeee</p>
-        <p>A lot of JSON</p>
-        <p>A lot of dfd</p>
-        <p>A lot of fdfd</p>
-        <p>A lot of sdsf</p>
-        <p>A lot of fddeeeee</p>
-        <p>A lot of JSON</p>
-        <p>A lot of dfd</p>
-        <p>A lot of fdfd</p>
-        <p>A lot of sdsf</p>
-        <p>A lot of fddeeeee</p>
-        <p>A lot of JSON</p>
-        <p>A lot of dfd</p>
-        <p>A lot of fdfd</p>
-        <p>A lot of sdsf</p>
-        <p>A lot of fddeeeee</p>
+    <h2> <b>Type your JSON here!</b> </h2>
+    <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">
+      <textarea rows = "20" cols="149"> 
+      </textarea> 
+      <br>
+      <br>
+      <button  type="submit" name="subs">Submit</button>
+
+      </form>
+
       </div>
     </div>
 </div>
