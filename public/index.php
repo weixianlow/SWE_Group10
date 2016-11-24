@@ -81,7 +81,7 @@
     					echo '<div class="well row">
 					<ul><li style = "list-style-type: none;"><div class = "col-md-9">
 
-    							<a href = "/html/view.php">' . $manifest['researchObject']['title'] . '</a>
+    							<a href = "/html/view.php">' . $researchObject['title'] . '</a>
     							</div></li>	</ul>
 					
 				</div>';
