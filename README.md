@@ -1,19 +1,17 @@
 # SWE_Group10
 Software Engineering Final Project - Group 10
 
-# Setup
-* Download node.js
-* Make sure npm is installed by using the following command: npm --version
-* Open terminal and navigate to your project location
-* Do the following command: npm install
-* You are now ready to go and all dependencies are loaded
+## About
 
-# Add new dependency
-* npm install <name of dependency> --save
-* Note: --save will add it to the dependency list in package.json
-* Check package.json, check dependencies and make sure it is added
+## Team Members
++ Kate Watkins
++ Andy Hine
++ Dewi Kharismawati
++ Alex Wilhelm
++ Assis Hardiman
++ Wei Xian Low
 
-## Server Deployment by Wei Xian Low
+## Server Deployment 
 
 
 Due to the nature of the web application, this web application would require an environment that is flexible enough to handle web request and also able to handle a noSQL system running alongside with it. With that requirement in mind, an EC2 instance powered by Amazon AWS is used in this set up. The EC2 instance has a Ubuntu 14.04 environment being used for our web app and hosting MongoDB. 
