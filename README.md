@@ -64,14 +64,17 @@ After configuring the php.ini file, apache services is restarted to refresh its 
 
 ##### Testing of Dependencies
 After installing all the necessary dependency needed by the web application, a test and checking is needed to be performed to ensure that all installation and configuration is performed correctly. To test if apache is working correctly, we would need to navigate to the public IP address of the EC2 instance, by navigating it through a web browser this page should appear serving as a landing page: 
+
 ![apache landing page](https://staging.cs4320.weixianlow.me/images/apacheDefault.png)
 This page shows that the apache is configured correctly and it’s properly redirecting traffic to the proper directories. To test if PHP is working, a simple PHP script is created with the following line
 
 > <?php phpinfo(); ?>
 
 By navigating to the php script on a web browser, this page should appear:
+
 ![php info page](https://staging.cs4320.weixianlow.me/images/phpinfo.PNG)
 With this page appearing, scroll down to the mongo section to see if php is configured to work with MongoDB and the proper port number is assigned:
+
 ![mongo configuration info](https://staging.cs4320.weixianlow.me/images/mongo.PNG)
 
 #### Domains and subdomains
