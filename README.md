@@ -24,6 +24,7 @@ In this server, a few dependencies needed to be installed on the server to ensur
 ##### Apache2
 To install the apache2 web server to allow traffic redirection to the proper file path, the following command is used: 
 > $ sudo apt-get install apache2
+
 ##### MongoDB
 The first step required to install MongoDB is to add the required repository into the system to let system know where to fetch the required files:
 > $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
@@ -42,7 +43,7 @@ PHP5 is required to allow use to execute php scripts to extend the functionality
 
 > $ sudo apt-get install php5 php5-dev libapache2-mod-php5 apache2-threaded-dev php-pear php5-mongo
 
-4. MongoDB PHP Module
+##### MongoDB PHP Module
 After installing PHP5, it needs to be configured to properly call MongoDB when mentioned in the script. The Mongo PECL extension needs to be installed: 
 
 
@@ -60,6 +61,7 @@ Then by using the nano editor in bash,  navigate to the end of file for the file
 
 After configuring the php.ini file, apache services is restarted to refresh its configuration
 >$ sudo service apache2 restart
+
 ##### Testing of Dependencies
 After installing all the necessary dependency needed by the web application, a test and checking is needed to be performed to ensure that all installation and configuration is performed correctly. To test if apache is working correctly, we would need to navigate to the public IP address of the EC2 instance, by navigating it through a web browser this page should appear serving as a landing page: 
 ![apache landing page](https://staging.cs4320.weixianlow.me/images/apacheDefault.png)
