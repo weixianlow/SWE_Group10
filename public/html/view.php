@@ -79,7 +79,7 @@
 		<br>
 	
 	
-		<div class="well row">
+		<div class="well row add_shadow">
 				<div class="col-md-10">
 					<?php
 						session_name("manifest_view");
