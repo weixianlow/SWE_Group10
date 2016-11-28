@@ -47,9 +47,7 @@
 									    	$permission_level = 0;
 									    	echo 'Welcome Guest! <a href = "/html/login.html">Login</a>';
 
-									    }else{
-									    	echo 'Welcome, ' . $name . '! <a href = "/html/logout.php/">Log Out</a>';
-										}	
+									    }
 									?>
 									<br>
 									<br>
@@ -79,7 +77,7 @@
 		<br>
 	
 	
-		<div class="well row">
+		<div class="well row add_shadow">
 				<div class="col-md-10">
 					<?php
 						session_name("manifest_view");
