@@ -11,6 +11,12 @@ Software Engineering Final Project - Group 10
 + Assis Hardiman
 + Wei Xian Low
 
+## Documentation
+
+The following link provides the complete documentation for this group project
+
+> https://drive.google.com/open?id=1e2irHTJcWEgToEjwiwuSOv07rpBLbDFnYkPAGhWZrtI
+
 ## Server Deployment 
 
 
