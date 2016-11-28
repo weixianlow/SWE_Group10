@@ -99,7 +99,7 @@
 
 if(isset($_POST["submit"])){
   if($permission_level == 2){
-	$uploads_dir = '/var/www/html/test-cs4320/SWE_Group10/public/json';
+	$uploads_dir = '/var/www/html/SWE_Group10/TEST_htmlDirectory/json';
    if(isset($_FILES['ufile']['name'])){
        $tmpName = $_FILES['ufile']['tmp_name']; 
        $newName = $_FILES['ufile']['name']; 
@@ -222,18 +222,82 @@ if(isset($_POST["submit"])){
 ?>
 
 
-    <div class="well add_shadow">
-    <h2> <b>Type your JSON here!</b> </h2>
+     <div class="well add_shadow">
+    <h2> <b>Manual input JSON</b> </h2>
     <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">
-      <textarea rows = "20" cols="149"> 
-      </textarea> 
+      <textarea rows = "20" cols="149" id = "input" placeholder='Type Your JSON file here!' name="textInput"> </textarea> 
       <br>
       <br>
-      <button class="ph-button ph-btn-green" type="submit" name="subs">Submit</button>
+      <button class="ph-button ph-btn-green" type="submit" name="save">Save</button>
+    
+    </form>    
+        <br>
+        
+        
 
-      </form>
 
-      </div>
+
+        <!-- <pre>
+        <div id = "demo"> </div>
+        </pre> -->
+
+     <?php
+        if(isset($_POST["save"])){
+         
+         $textInput = $_POST['textInput'];
+
+         $json = json_decode($textInput);         
+         
+             // connect to mongodb
+             $m = new MongoClient();
+             //echo "Connection to database successfully";
+
+             
+            
+             // select a database
+             $db = $m->SWE;
+             //echo "Database mydb selected";
+             $collection = $db->manifest;
+             //echo "Collection selected succsessfully";
+
+             $collection->insert($json);
+            
+             echo'<div class="alert alert-info">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <p> Data inserted into the database!</p>
+                </div>';
+
+
+         echo ' <h2><b> You just uploaded JSON data bellow Manually</b></h2>';
+         echo '<pre>'; 
+         print_r($json);
+         echo '</pre>';
+         
+
+
+
+        }
+     ?>
+
+
+
+
+
+
+ <!--      <script type="text/javascript"> onclick="saveHandler()" 
+        function saveHandler(){
+          var jsonData = document.getElementById("input").value;
+          var jsonPretty = JSON.stringify(JSON.parse(jsonData),null,2);
+
+
+
+
+
+
+          document.getElementById("demo").innerHTML = jsonPretty;
+        }
+      </script>
+ -->
     </div>
 </div>
 </body>
