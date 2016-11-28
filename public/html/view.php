@@ -6,7 +6,8 @@
 ?>
 <html>
 
-<form method = "POST" action = "/html/index.php">
+
+<form method = "POST" action = "index.php">
         <button class="col-md-1" type="submit" name="upload_manifest">Return</button>
         </form>
 <head>
@@ -29,7 +30,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="/html/index.php">HOME</a>
+	      <a class="navbar-brand" href="index.php">HOME</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,8 +47,10 @@
 									    if($name == ''){
 									    	$permission_level = 0;
 									    	echo 'Welcome Guest! <a href = "/html/login.html">Login</a>';
+									    }else{
+									    	echo 'Welcome, ' . $name . '! <a href = "/html/logout.php/">Log Out</a>';
+										}	
 
-									    }
 									?>
 									<br>
 									<br>
@@ -101,13 +104,36 @@
 							<br>
 						</div>
 						';
-					?>
+					
+				
+
+				?>
 					
 				</div>
-				<button class="col-md-2 ph-button ph-btn-blue">Download</button>
-				<button class="col-md-2 ph-button ph-btn-green">Update</button>
-				<button class="col-md-2 ph-button ph-btn-red">Delete</button>
-			
+
+				<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">
+					<input class="col-md-2 ph-button ph-btn-blue" type="submit" value="Download" name="download"\>
+				</form>
+
+				<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">
+					<input class="col-md-2 ph-button ph-btn-green" type="submit" value="Update" name="update"\>
+
+				</form>
+
+				<form action="/html/index.php" method="POST" enctype="multipart/form-data">
+					<input class="col-md-2 ph-button ph-btn-red" type="submit" value="Delete" name="delete"\>
+				</form>
+
+
+				<!-- FORM handle for delete-->
+				<?php		
+				if(isset($_POST["delete"])){
+						
+				   	$collection->remove(array('_id' => new MongoId($_id)));
+				}
+				?>
+				
+
 		</div>
 	</div>
 

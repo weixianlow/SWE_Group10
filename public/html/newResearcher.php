@@ -29,11 +29,9 @@
 				      	<br>
 				      	
 			      	</div>
-			    </form>
-			    <a href = "/html/index.html">Cancel</button>
-	  		</div>
-		</div>
-			<?php
+			    </form>			   
+
+			    		<?php
 				if(isset($_POST['submit'])) { // Was the form submitted?
 
 					$username = $_POST['username'];
@@ -47,30 +45,32 @@
 
 					$user = array("username" => $username, "salt" => $salt, "hashed_password" => $hpass, "email" => $email, "fname" => $fname, "lname" => $lname, "permission_level" => $permission);
 
-					$m = new MongoClient();
-    				echo 'successful connection to database';
+					$m = new MongoClient();    				
     				$db = $m->SWE;
 
     				$codes = $db->AccessCodes;
     				$codequery = array('value' => $code);
     				$match = $codes->find($codequery);
 
+    				if($match->count() == 0)
+    					echo 'Invalid Access code! <a href = "index.php">Return</a>';
     				foreach ($match as $find){
     					$c = $db->user;
-    					$c->insert($user);
-    					echo 'user registered!';   					
-    				}
 
-    				//need negative feedback if wrong code used
-    			
-    				//else
-    				//{
-    			//		echo 'invalid code';
-    			//	}
+    					if($c->insert($user)){
+    						echo 'User Registered! <a href = "/html/login.html">Login Now</a>'; 
 
-    			
+    					}    										   					
+    				}   			
 				}
 			?>
+			<br>
+			 <br>
+			 <a href = "index.php">Cancel</a>
+			    
+	  		</div>
+		</div>
+
 	</div>
 
 

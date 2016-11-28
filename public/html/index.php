@@ -26,7 +26,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/html/index.php">HOME</a>
+      <a class="navbar-brand" href="index.php">HOME</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,7 +44,9 @@
 								    	$permission_level = 0;
 								    	echo 'Welcome Guest! <a href = "/html/login.html">Login</a>';
 
-								    }
+								    }else{
+								    	echo 'Welcome, ' . $name . '! <a href = "/html/logout.php/">Log Out</a>';
+									}	
 								?>
 								<br>
 								<br>
@@ -99,13 +101,34 @@
 		<div>
 			<div style="display:inline" class="col-md-1 margin_space_top">Search: </div>
 			<input class="col-md-5 margin_space_top" type="text" name="browse_manifest">
+			<div class="btn-group margin_space_left" data-toggle="buttons">
+				
+				<label class="btn btn-success active">
+					Manifest Search
+					<input type="radio" name="options" id="option2" autocomplete="off" checked>
+					<span class="glyphicon glyphicon-ok"></span>
+				</label>
+
+				<label class="btn btn-primary">
+					Keyword Search
+					<input type="radio" name="options" id="option1" autocomplete="off">
+					<span class="glyphicon glyphicon-ok"></span>
+				</label>
+
+			</div>
 		</div>
 		<br>
 		<br>
-		<div class="well add_shadow">			
-			<form method = "POST" action = "/html/uploadCreate.php">
+		<div class="well add_shadow">
+
+		<?php
+		if($permission_level == 2){
+			echo '<form method = "POST" action = "/html/uploadCreate.php">
 				<button class="col-md-2 ph-button ph-btn-green" type="submit" name="upload_manifest">New Manifest</button>
-			</form>
+			</form>';
+		}
+		?>	
+
 			<br>
 			<hr class="custom-seperator custom-seperator-position" style="border-top-color:black;">
 			<div>
@@ -124,6 +147,8 @@
     					session_name("manifest_view");
     					session_start();
     					$_SESSION["doc"] = $doc;
+
+    					//problem here impacted the view
     					echo '
     					<div class="hl_divider row col-md-9 show_hover list_cell">
 	    					<a href = "/html/view.php">
@@ -145,4 +170,5 @@
 </body>
 
 </html>
+
 

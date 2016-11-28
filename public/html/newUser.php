@@ -29,12 +29,8 @@
 				      	
 			      	</div>
 			    </form>
-			    <a href = "/html/index.html">Cancel</button>
-	  		</div>
-		</div>
-
-			<?php
-				if(isset($_POST['submit'])) { // Was the form submitted?
+			    <?php
+					if(isset($_POST['submit'])) { // Was the form submitted?
 
 					$username = $_POST['username'];
 					$salt = mt_rand();
@@ -47,13 +43,22 @@
 					$user = array("username" => $username, "salt" => $salt, "hashed_password" => $hpass, "email" => $email, "fname" => $fname, "lname" => $lname, "permission_level" => $permission);
 
 					$m = new MongoClient();
-    				echo 'successful connection to database';
+    				
     				$db = $m->SWE;
     				$c = $db->user;
 
     				$c->insert($user);
-				}
-			?>
+    				echo 'User Registered! <a href = "/html/login.html">Login Now</a>';    				
+					}
+				?>
+				<br>
+				<br>
+			    <a href = "index.php">Cancel</button>
+
+	  		</div>
+		</div>
+
+		
 
 	</div>
 
