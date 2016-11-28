@@ -53,7 +53,7 @@
 				?>
 				<br>
 				<br>
-			    <a href = "index.php">Cancel</button>
+			    <a href = "../index.php">Cancel</button>
 
 	  		</div>
 		</div>

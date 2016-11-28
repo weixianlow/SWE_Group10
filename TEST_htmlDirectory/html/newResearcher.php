@@ -53,7 +53,7 @@
     				$match = $codes->find($codequery);
 
     				if($match->count() == 0)
-    					echo 'Invalid Access code! <a href = "index.php">Return</a>';
+    					echo 'Invalid Access code! <a href = "../index.php">Return</a>';
     				foreach ($match as $find){
     					$c = $db->user;
 
@@ -66,7 +66,7 @@
 			?>
 			<br>
 			 <br>
-			 <a href = "index.php">Cancel</a>
+			 <a href = "../index.php">Cancel</a>
 			    
 	  		</div>
 		</div>

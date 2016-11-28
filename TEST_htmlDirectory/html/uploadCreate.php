@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 
- <form method = "POST" action = "/html/index.php">
+ <form method = "POST" action = "../index.php">
         <button class="col-md-1" type="submit" name="upload_manifest">Return</button>
         </form>
 <head>
@@ -26,7 +26,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       
-      <a class="navbar-brand" href="/html/index.php">HOME</a>
+      <a class="navbar-brand" href="../index.php">HOME</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -85,7 +85,7 @@
 
 	</form>
 	<br>
-      <form method = "POST" action = "/html/index.php">
+      <form method = "POST" action = "../index.php">
         <button class="ph-button ph-btn-red" type="submit" name="upload_manifest">Cancel</button>
       </form>
       <br>

@@ -6,7 +6,7 @@
 ?>
 <html>
 
-<form method = "POST" action = "/html/index.php">
+<form method = "POST" action = "../index.php">
         <button class="col-md-1" type="submit" name="upload_manifest">Return</button>
         </form>
 <head>
@@ -29,7 +29,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="/html/index.php">HOME</a>
+	      <a class="navbar-brand" href="../index.php">HOME</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
