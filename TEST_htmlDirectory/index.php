@@ -102,10 +102,14 @@
 		</div>
 		<br>
 		<br>
-		<div class="well add_shadow">			
-			<form method = "POST" action = "/html/uploadCreate.php">
+		<div class="well add_shadow">
+		<?php	
+			if($permission_level > 1){		
+			echo'<form method = "POST" action = "/html/uploadCreate.php">
 				<button class="col-md-2 ph-button ph-btn-green" type="submit" name="upload_manifest">New Manifest</button>
-			</form>
+			</form>';
+			}	
+		?>
 			<br>
 			<hr class="custom-seperator custom-seperator-position" style="border-top-color:black;">
 			<div>
