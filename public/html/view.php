@@ -47,9 +47,7 @@
 									    	$permission_level = 0;
 									    	echo 'Welcome Guest! <a href = "/html/login.html">Login</a>';
 
-									    }else{
-									    	echo 'Welcome, ' . $name . '! <a href = "/html/logout.php/">Log Out</a>';
-										}	
+									    }
 									?>
 									<br>
 									<br>

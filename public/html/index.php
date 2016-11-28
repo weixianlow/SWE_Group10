@@ -44,9 +44,7 @@
 								    	$permission_level = 0;
 								    	echo 'Welcome Guest! <a href = "/html/login.html">Login</a>';
 
-								    }else{
-								    	echo 'Welcome, ' . $name . '! <a href = "/html/logout.php/">Log Out</a>';
-									}	
+								    }
 								?>
 								<br>
 								<br>
@@ -101,21 +99,6 @@
 		<div>
 			<div style="display:inline" class="col-md-1 margin_space_top">Search: </div>
 			<input class="col-md-5 margin_space_top" type="text" name="browse_manifest">
-			<div class="btn-group margin_space_left" data-toggle="buttons">
-				
-				<label class="btn btn-success active">
-					Manifest Search
-					<input type="radio" name="options" id="option2" autocomplete="off" checked>
-					<span class="glyphicon glyphicon-ok"></span>
-				</label>
-
-				<label class="btn btn-primary">
-					Keyword Search
-					<input type="radio" name="options" id="option1" autocomplete="off">
-					<span class="glyphicon glyphicon-ok"></span>
-				</label>
-
-			</div>
 		</div>
 		<br>
 		<br>
@@ -145,7 +128,8 @@
     					<div class="hl_divider row col-md-9 show_hover list_cell">
 	    					<a href = "/html/view.php">
 								<li style = "list-style-type: none;">
-									' . $researchObject['title'] . '
+									<p>' . $researchObject['title'] . '</p>
+									<p> By: ' . $creator . '</p>
 								</li>
 							</a>
 						</div>';
