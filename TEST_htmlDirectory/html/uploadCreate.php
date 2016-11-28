@@ -225,7 +225,69 @@ if(isset($_POST["submit"])){
      <div class="well add_shadow">
     <h2> <b>Manual input JSON</b> </h2>
     <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">
-      <textarea rows = "20" cols="149" id = "input" placeholder='Type Your JSON file here!' name="textInput"> </textarea> 
+      <textarea rows = "20" cols="149" id = "input" placeholder='Type Your JSON file here!' name="textInput">
+        {  
+           "standardsVersion": "",
+           "id":"",
+           "creator":"",
+           "dateCreated":"",
+           "researchObject":{  
+             "title":"",
+             "creators":[  
+                {  
+                  "name":"",
+                  "email":""
+                },
+                {  
+                "name":"",
+                "email":""
+                }
+              ],
+                "dates":{
+                  "dateCreated":""
+                },
+                "provenance":{  
+                  "narrative":""
+                },
+                "bibliographicCitations":[  
+                  "",
+                  ""
+                ],
+                "distributions":[  
+                  {  
+                    "uri":"",
+                    "comment":""
+                  }
+                ],
+                "files":[  
+                  {  
+                    "name":"",
+                    "format":"",
+                    "abstract":"",
+                    "size":"",
+                    "uri":"",
+                    "permissions":"",
+                    "dates":
+                      {
+                        "dateCreated":""
+                      }
+                  },
+                  {  
+                    "name":"",
+                    "format":"",
+                    "abstract":"",
+                    "size":"",
+                    "uri":"",
+                    "permissions":"",
+                    "dates":
+                      {
+                        "dateCreated":""
+                      }
+                  }
+                ]
+            }
+        }
+      </textarea> 
       <br>
       <br>
       <button class="ph-button ph-btn-green" type="submit" name="save">Save</button>
@@ -246,9 +308,10 @@ if(isset($_POST["submit"])){
          
          $textInput = $_POST['textInput'];
 
-         $json = json_decode($textInput);         
-         
-             // connect to mongodb
+         $json = json_decode($textInput);       
+
+         if(json_last_error() === JSON_ERROR_NONE){
+         	// connect to mongodb
              $m = new MongoClient();
              //echo "Connection to database successfully";
 
@@ -273,11 +336,21 @@ if(isset($_POST["submit"])){
          print_r($json);
          echo '</pre>';
          
+     }  else {
+
+            echo '<div class="alert alert-danger">
+              		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              		<p> NOT a JSON FORMAT. FAILED to upload!</p>
+            	  </div>';
+     }
+         
+             
 
 
 
         }
      ?>
+     
 
 
 
