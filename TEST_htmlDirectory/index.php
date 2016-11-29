@@ -29,6 +29,10 @@
       <a class="navbar-brand" href="../index.php">HOME</a>
     </div>
 
+
+
+
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
@@ -92,6 +96,32 @@
 	  </div>
 	</nav>-->
 
+	<!-- FORM handle for delete-->
+			<?php
+				
+				if(isset($_POST['data'])){
+							$id = $_POST['data'];
+							//echo $id; 
+						
+														 
+							$m = new MongoClient();   
+    						$db = $m->SWE;
+    						$c = $db->manifest;
+
+							//echo "Collection selected succsessfully";
+							$c->remove(array('_id' => new MongoId($id)));
+							
+							echo'<div class="alert alert-info" text-center>
+				                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				                  Documents with ID: ' . $id .  ' is deleted successfully from the database
+				                </div>';
+
+    						
+    						}
+    			?>	
+
+
+
 	<div class = "container">
 		<br>
 		<br>		
@@ -124,9 +154,12 @@
 
     				foreach($cursor as $doc){	
     					
-    					extract($doc);   					
-    					session_name("manifest_view");
+    					/*extract($doc);   					
+    					session_id("manifest_view");    					
+    					session_unset();
+    					session_destroy();
     					session_start();
+    					
     					$_SESSION["doc"] = $doc;
     					echo '
     					<div class="hl_divider row col-md-9 show_hover list_cell">
@@ -136,7 +169,19 @@
 									<p> By: ' . $creator . '</p>
 								</li>
 							</a>
-						</div>';
+						</div>';*/
+
+						extract($doc);
+						echo '						
+							<div class="hl_divider row col-md-9 show_hover list_cell">
+	    					<form action = "/html/view.php" method = "POST">
+								<li style = "list-style-type: none;">
+									<input type = "submit" value = "' . $researchObject['title'] . '" name = "title"\>									
+									<p> By: ' . $creator . '</p>
+								</li>
+							</form>
+						</div>						
+						';
     				}
 
 					?>
