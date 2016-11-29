@@ -1,0 +1,61 @@
+     {  
+         "standardsVersion": "v1.2.1",
+         "id":"132142141",
+         "creator":"Kharismawati",
+         "dateCreated":"1/11/2016",
+         "researchObject":{  
+            "title":"Software Analytics",
+            "creators":[  
+               {  
+                  "name":"Susan Sinaga",
+                  "email":"sinaga.susan@missouri.edu"
+               },
+               {  
+                  "name":"Dewi Endah",
+                  "email":"Dewi.Endah@missouri.edu"
+               }
+            ],
+            "dates":{
+               "dateCreated":"2015-1-1"
+            },
+            "provenance":{  
+               "narrative":"full details in paper"
+            },
+            "bibliographicCitations":[  
+               "Vincent, A. G. (2003). Software engineering for undergraduate, 7(4), 379-403. doi:10.1177/1028315303257120",
+               "Dira, M. S. (2006, July 19). Common Software Vulnerabilities. Journal of Research in Computer Science, 5, 131-126. doi:10.1177/1475240906065589"
+            ],
+            "distributions":[  
+               {  
+                  "uri":"https://datahub.io/dataset/software_analytics",
+                  "comment":"Folder with 15 data files"
+               }
+            ],
+            "files":[  
+               {  
+                  "name":"2015ResearchDataCollection.json.txt",
+                  "format":"json",
+                  "abstract":"Contains data collection for the research analysis",
+                  "size":"78 K",
+                  "uri":"https://datahub.io/dataset/bigdata_analysis_security/2015ResearchDataCollection.json",
+                  "permissions":"Open Database License 2.0",
+                  "dates":
+                     {
+                        "dateCreated":"2015-10-10"
+                     }
+               },
+               {  
+                  "name":"2015ResearchAnalysis.tsv.txt",
+                  "format":"tsv",
+                  "abstract":"Contains insults gleaned from messages sent to the LKML mailing list by Linus Torvalds during the year 2013",
+                  "size":"256 K",
+                  "uri":"https://datahub.io/dataset/bigdata_analysis_security/2015ResearchAnalysis.tsv.txt",
+                  "permissions":"Open Database License 1.0",
+                  "dates":
+                     {
+                        "dateCreated":"2015-10-11"
+                     }
+               }
+            ]
+         }
+      }

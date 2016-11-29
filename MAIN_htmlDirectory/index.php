@@ -26,8 +26,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/html/index.php">HOME</a>
+      <a class="navbar-brand" href="../index.php">HOME</a>
     </div>
+
+
+
+
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -92,6 +96,32 @@
 	  </div>
 	</nav>-->
 
+	<!-- FORM handle for delete-->
+			<?php
+				
+				if(isset($_POST['data'])){
+							$id = $_POST['data'];
+							//echo $id; 
+						
+														 
+							$m = new MongoClient();   
+    						$db = $m->SWE;
+    						$c = $db->manifest;
+
+							//echo "Collection selected succsessfully";
+							$c->remove(array('_id' => new MongoId($id)));
+							
+							echo'<div class="alert alert-info" text-center>
+				                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				                  Documents with ID: ' . $id .  ' is deleted successfully from the database
+				                </div>';
+
+    						
+    						}
+    			?>	
+
+
+
 	<div class = "container">
 		<br>
 		<br>		
@@ -102,10 +132,14 @@
 		</div>
 		<br>
 		<br>
-		<div class="well add_shadow">			
-			<form method = "POST" action = "/html/uploadCreate.php">
+		<div class="well add_shadow">
+		<?php	
+			if($permission_level > 1){		
+			echo'<form method = "POST" action = "/html/uploadCreate.php">
 				<button class="col-md-2 ph-button ph-btn-green" type="submit" name="upload_manifest">New Manifest</button>
-			</form>
+			</form>';
+			}	
+		?>
 			<br>
 			<hr class="custom-seperator custom-seperator-position" style="border-top-color:black;">
 			<div>
@@ -120,9 +154,12 @@
 
     				foreach($cursor as $doc){	
     					
-    					extract($doc);   					
-    					session_name("manifest_view");
+    					/*extract($doc);   					
+    					session_id("manifest_view");    					
+    					session_unset();
+    					session_destroy();
     					session_start();
+    					
     					$_SESSION["doc"] = $doc;
     					echo '
     					<div class="hl_divider row col-md-9 show_hover list_cell">
@@ -132,7 +169,19 @@
 									<p> By: ' . $creator . '</p>
 								</li>
 							</a>
-						</div>';
+						</div>';*/
+
+						extract($doc);
+						echo '						
+							<div class="hl_divider row col-md-9 show_hover list_cell">
+	    					<form action = "/html/view.php" method = "POST">
+								<li style = "list-style-type: none;">
+									<input type = "submit" value = "' . $researchObject['title'] . '" name = "title"\>									
+									<p> By: ' . $creator . '</p>
+								</li>
+							</form>
+						</div>						
+						';
     				}
 
 					?>

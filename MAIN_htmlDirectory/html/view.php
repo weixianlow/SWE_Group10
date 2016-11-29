@@ -1,4 +1,5 @@
-<?php  
+<?php
+	session_id("login"); 
     session_start();
     $username = $_SESSION['username'];
     $permission_level = $_SESSION['permission'];
@@ -6,7 +7,7 @@
 ?>
 <html>
 
-<form method = "POST" action = "/html/index.php">
+<form method = "POST" action = "../index.php">
         <button class="col-md-1" type="submit" name="upload_manifest">Return</button>
         </form>
 <head>
@@ -29,7 +30,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="/html/index.php">HOME</a>
+	      <a class="navbar-brand" href="../index.php">HOME</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -80,10 +81,28 @@
 		<div class="well row add_shadow">
 				<div class="col-md-10">
 					<?php
-						session_name("manifest_view");
+						/*session_id("manifest_view");
+						echo session_id();
 						session_start();
 						$doc = $_SESSION["doc"];
+						*/
 
+						$t = $_POST['title'];
+						echo $t;
+						if(isset($_POST["title"])){
+							$t = $_POST['title'];							
+							$m = new MongoClient();   
+    						$db = $m->SWE;
+    						$c = $db->manifest;
+
+    						$query = array('researchObject.title' => $t);
+    						$cursor = $c->find($query);
+    						
+    						foreach($cursor as $doc){
+    							$doc = $doc;
+    						}				
+    						
+						
 
 						echo '<pre id="manifest-details">';
 						var_dump($doc);
@@ -101,12 +120,29 @@
 							<br>
 						</div>
 						';
+
+						
+
 					?>
 					
 				</div>
-				<button class="col-md-2 ph-button ph-btn-blue">Download</button>
-				<button class="col-md-2 ph-button ph-btn-green">Update</button>
-				<button class="col-md-2 ph-button ph-btn-red">Delete</button>
+				<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" >
+					<input class="col-md-2 ph-button ph-btn-blue" type="submit" value="Download" name="download"\>
+				</form>
+
+				<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" >
+					<input class="col-md-2 ph-button ph-btn-green" type="submit" value="Update" name="update"\>
+
+				</form>
+
+				<form action="../index.php" method="POST">
+					<input type="hidden" name="data" value="<?php echo $_id; ?>">
+					<input class="col-md-2 ph-button ph-btn-red" type="submit" value="Delete" name="delete"\>
+				</form>
+
+				<?php
+				}
+				?>
 			
 		</div>
 	</div>
