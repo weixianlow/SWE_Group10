@@ -124,9 +124,12 @@
 
     				foreach($cursor as $doc){	
     					
-    					extract($doc);   					
-    					session_name("manifest_view");
+    					/*extract($doc);   					
+    					session_id("manifest_view");    					
+    					session_unset();
+    					session_destroy();
     					session_start();
+    					
     					$_SESSION["doc"] = $doc;
     					echo '
     					<div class="hl_divider row col-md-9 show_hover list_cell">
@@ -137,6 +140,26 @@
 								</li>
 							</a>
 						</div>';
+
+
+
+
+
+
+						*/
+
+						extract($doc);
+						echo '						
+							<div class="hl_divider row col-md-9 show_hover list_cell">
+								<li style = "list-style-type: none;">
+	    							<form action = "/html/view.php" method = "POST">
+										<input type = "submit" value = "' . $researchObject['title'] . '" name = "title"\>		
+									</form>		
+									<p>' . $researchObject['title'] . '</p>		
+									<p> By: ' . $creator . '</p>
+								</li>
+							</div>						
+						';
     				}
 
 					?>
