@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 	session_id("login"); 
     session_start();
@@ -163,4 +164,3 @@
 </body>
 
 </html>
-

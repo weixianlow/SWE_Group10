@@ -16,7 +16,7 @@
     }
 
     if(password_verify($salt.$pass, $hashed_password)){          //session start
-
+        session_id("login");
         session_start();
         $_SESSION["username"] = $username;
         $_SESSION["permission"] = $permission_level;
