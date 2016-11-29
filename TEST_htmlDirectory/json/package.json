@@ -1,0 +1,22 @@
+{
+  "name": "npm_setup",
+  "version": "1.0.0",
+  "description": "Software Engineering Final Project - Group 10",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weixianlow/SWE_Group10.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weixianlow/SWE_Group10/issues"
+  },
+  "homepage": "https://github.com/weixianlow/SWE_Group10#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
