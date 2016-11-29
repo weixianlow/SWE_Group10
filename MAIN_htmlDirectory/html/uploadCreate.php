@@ -1,16 +1,9 @@
+
 <?php    
     session_start();
     $username = $_SESSION['username'];
     $permission_level = $_SESSION['permission'];
     $name = $_SESSION['name'];
-
-    if($name == ''){
-      $permission_level = 0;
-      echo 'Welcome Guest! <a href = "/html/login.html">Login</a><br><br> Need an Account? Register as a <a href = "/html/newUser.php">Student</a> or <a href = "/html/newResearcher.php">Researcher</a>';
-
-    }else{
-      echo 'Welcome, ' . $name . '! <a href = "/html/logout.php/">Log Out</a>';
-  } 
 ?>
 
 <!DOCTYPE html>
@@ -22,28 +15,78 @@
 <head>
 <title>Upload Manifest</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/main.css" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      
+      <a class="navbar-brand" href="/html/index.php">HOME</a>
+    </div>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+      <ul id="login-dp" class="dropdown-menu">
+        <li>
+           <div class="row">
+              <div class="col-md-12 text-center">
+                <br>
+                <?php
+                    if($name == ''){
+                      $permission_level = 0;
+                      echo 'Welcome Guest! <a href = "/html/login.html">Login</a>';
+
+                    }
+                ?>
+                <br>
+                <br>
+                <br>
+
+                <?php
+                    if($name == ''){
+                      $permission_level = 0;
+                      echo 'Register as a <a href = "/html/newUser.php">Student</a> or <a href = "/html/newResearcher.php">Researcher</a>';
+
+                    }else{
+                      echo 'Welcome, ' . $name . '! <a href = "/html/logout.php/">Log Out</a>';
+                  } 
+                ?>
+                <br>
+                <br>
+              </div>
+           </div>
+        </li>
+      </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 <div class="container">
 
 <br>
 <br>
-<div class="well">
+<div class="well add_shadow">
 
 	<h2><b>Upload Manifest</b></h2><br>
 	<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">
 
-	    <input type="file" name="ufile" \><br><br> 
-	    <input type="submit" value="Upload" name="submit"\>
+	    <input class="ph-button ph-btn-grey" type="file" name="ufile" \><br><br> 
+	    <input class="ph-button ph-btn-blue" type="submit" value="Upload" name="submit"\>
+
 
 	</form>
 	<br>
       <form method = "POST" action = "/html/index.php">
-        <button class="col-md-1" type="submit" name="upload_manifest">Cancel</button>
+        <button class="ph-button ph-btn-red" type="submit" name="upload_manifest">Cancel</button>
       </form>
       <br>
       <br>
@@ -179,14 +222,14 @@ if(isset($_POST["submit"])){
 ?>
 
 
-    <div class="well">
+    <div class="well add_shadow">
     <h2> <b>Type your JSON here!</b> </h2>
     <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">
       <textarea rows = "20" cols="149"> 
       </textarea> 
       <br>
       <br>
-      <button  type="submit" name="subs">Submit</button>
+      <button class="ph-button ph-btn-green" type="submit" name="subs">Submit</button>
 
       </form>
 
