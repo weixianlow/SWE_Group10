@@ -1,0 +1,61 @@
+ {
+         "standardsVersion": "v0.0.22",
+         "id":"1111201601",
+         "creator":"Dewi",
+         "dateCreated":"11/11/2016",
+         "researchObject":{  
+            "title":"Malware Security",
+            "creators":[  
+               {  
+                  "name":"David Saws",
+                  "email":"saws.david@missouri.edu"
+               },
+               {  
+                  "name":"Vincent Bros",
+                  "email":"bros.vincent@missouri.edu"
+               }
+            ],
+            "dates":{
+               "dateCreated":"2016-30-10"
+            },
+            "provenance":{  
+               "narrative":"full details in paper"
+            },
+            "bibliographicCitations":[  
+               "Susan, B. M. (2009). Malware and Virus Analysis. Journal of Studies in International Technology, 7(4), 379-403. doi:10.1177/102831543532257120",
+               "Tricia, K. A. (2013).  Information Security System. Journal of Research in Computer Science, 5, 131-126. doi:10.1177/147524090606558954325342"
+            ],
+            "distributions":[  
+               {  
+                  "uri":"https://datahub.io/dataset/malware_analysis",
+                  "comment":"Folder with 15 findings data"
+               }
+            ],
+            "files":[  
+               {  
+                  "name":"2015ResearchDataCollection.json.txt",
+                  "format":"json",
+                  "abstract":"Contains data collection for the research analysis",
+                  "size":"78 K",
+                  "uri":"https://datahub.io/dataset/malware_analysis/2015ResearchDataCollection.json",
+                  "permissions":"Open Database License 2.0",
+                  "dates":
+                     {
+                        "dateCreated":"2015-10-10"
+                     }
+               },
+               {  
+                  "name":"2015ResearchAnalysis.tsv.txt",
+                  "format":"tsv",
+                  "abstract":"Contains the result of research analysis",
+                  "size":"256 K",
+                  "uri":"https://datahub.io/dataset/malware_analysis/2015ResearchAnalysis.json",
+                  "permissions":"Open Database License 1.0",
+                  "dates":
+                     {
+                        "dateCreated":"2015-10-11"
+                     }
+               }
+            ]
+         }
+}

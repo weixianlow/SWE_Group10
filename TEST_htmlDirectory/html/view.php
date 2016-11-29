@@ -1,4 +1,5 @@
-<?php  
+<?php
+	session_id("login"); 
     session_start();
     $username = $_SESSION['username'];
     $permission_level = $_SESSION['permission'];
@@ -80,10 +81,27 @@
 		<div class="well row add_shadow">
 				<div class="col-md-10">
 					<?php
-						session_name("manifest_view");
+						/*session_id("manifest_view");
+						echo session_id();
 						session_start();
 						$doc = $_SESSION["doc"];
+						*/
 
+
+						if(isset($_POST["title"])){
+							$t = $_POST['title'];							
+							$m = new MongoClient();   
+    						$db = $m->SWE;
+    						$c = $db->manifest;
+
+    						$query = array('researchObject.title' => $t);
+    						$cursor = $c->find($query);
+    						
+    						foreach($cursor as $doc){
+    							$doc = $doc;
+    						}				
+    						
+						}
 
 						echo '<pre id="manifest-details">';
 						var_dump($doc);
@@ -104,9 +122,39 @@
 					?>
 					
 				</div>
-				<button class="col-md-2 ph-button ph-btn-blue">Download</button>
-				<button class="col-md-2 ph-button ph-btn-green">Update</button>
-				<button class="col-md-2 ph-button ph-btn-red">Delete</button>
+				<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" >
+					<input class="col-md-2 ph-button ph-btn-blue" type="submit" value="Download" name="download"\>
+				</form>
+
+				<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" >
+					<input class="col-md-2 ph-button ph-btn-green" type="submit" value="Update" name="update"\>
+
+				</form>
+
+				<form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
+					<input class="col-md-2 ph-button ph-btn-red" type="submit" value="Delete" name="delete"\>
+				</form>
+
+
+
+				<!-- FORM handle for delete-->
+				<?php						
+				if(isset($_POST["delete"])){
+						session_id("manifest_view");
+						echo session_id();
+						session_start();
+						$doc = $_SESSION["doc"];
+
+						echo "test inside";
+						//echo $_id;
+				   	$collection->remove(array('_id' => new MongoId($_id)));
+
+				   	echo'<div class="alert alert-info">
+		                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		                  <p> your manifest with id: ' . $_id . 'is deleted!</p>
+		                </div>';
+		        }
+				?>
 			
 		</div>
 	</div>
