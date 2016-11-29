@@ -139,14 +139,8 @@
 									<p> By: ' . $creator . '</p>
 								</li>
 							</a>
-						</div>';
 
-
-
-
-
-
-						*/
+						</div>';*/
 
 						extract($doc);
 						echo '						
@@ -158,7 +152,7 @@
 									<p>' . $researchObject['title'] . '</p>		
 									<p> By: ' . $creator . '</p>
 								</li>
-							</div>						
+							</div>	
 						';
     				}
 
