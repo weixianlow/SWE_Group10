@@ -174,13 +174,14 @@
 						extract($doc);
 						echo '						
 							<div class="hl_divider row col-md-9 show_hover list_cell">
-	    					<form action = "/html/view.php" method = "POST">
 								<li style = "list-style-type: none;">
-									<input type = "submit" value = "' . $researchObject['title'] . '" name = "title"\>									
+	    							<form action = "/html/view.php" method = "POST">
+										<input type = "submit" value = "' . $researchObject['title'] . '" name = "title"\>		
+									</form>		
+									<p>' . $researchObject['title'] . '</p>		
 									<p> By: ' . $creator . '</p>
 								</li>
-							</form>
-						</div>						
+							</div>	
 						';
     				}
 
