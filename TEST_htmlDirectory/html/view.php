@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 	session_id("login"); 
     session_start();
@@ -88,7 +87,8 @@
 						$doc = $_SESSION["doc"];
 						*/
 
-
+						//$t = $_POST['title'];
+						//echo $t;
 						if(isset($_POST["title"])){
 							$t = $_POST['title'];							
 							$m = new MongoClient();   
@@ -102,7 +102,7 @@
     							$doc = $doc;
     						}				
     						
-						}
+						
 
 						echo '<pre id="manifest-details">';
 						var_dump($doc);
@@ -120,6 +120,9 @@
 							<br>
 						</div>
 						';
+
+						
+
 					?>
 					
 				</div>
@@ -127,34 +130,22 @@
 					<input class="col-md-2 ph-button ph-btn-blue" type="submit" value="Download" name="download"\>
 				</form>
 
+				<?php
+					if($permission_level>1){
+				?>
 				<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" >
 					<input class="col-md-2 ph-button ph-btn-green" type="submit" value="Update" name="update"\>
 
 				</form>
 
-				<form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
+				<form action="../index.php" method="POST">
+					<input type="hidden" name="data" value="<?php echo $_id; ?>">
 					<input class="col-md-2 ph-button ph-btn-red" type="submit" value="Delete" name="delete"\>
 				</form>
 
-
-
-				<!-- FORM handle for delete-->
-				<?php						
-				if(isset($_POST["delete"])){
-						session_id("manifest_view");
-						echo session_id();
-						session_start();
-						$doc = $_SESSION["doc"];
-
-						echo "test inside";
-						//echo $_id;
-				   	$collection->remove(array('_id' => new MongoId($_id)));
-
-				   	echo'<div class="alert alert-info">
-		                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		                  <p> your manifest with id: ' . $_id . 'is deleted!</p>
-		                </div>';
-		        }
+				<?php
+				}
+				}
 				?>
 			
 		</div>
@@ -164,3 +155,4 @@
 </body>
 
 </html>
+
