@@ -8,15 +8,8 @@
     // destroy the session 
     
     session_destroy();
-       
-      
-    
-    echo "<script>alert('You are successfully logged out.')</script>";
-    echo "<a href = '../../index.php'>Successful log out. Click to go back home.</a>";
-    //sleep(10);
-
-    //header('location: ../../index.php');
     
     
+    header('location: ../../index.php');
 ?>
     
