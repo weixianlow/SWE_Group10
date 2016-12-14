@@ -166,3 +166,19 @@ For php scripts to be executed when needed to only allow reading and executing b
 
 
 > $ sudo chmod 755 <insert file directory here>
+
+##### Automatic Deployment from GitHub Repository to Server
+To handle automatic deployment so that no human interaction would be required, a crontab automatic scheduling is configured on the server to perform a git pull from the repository
+
+Assuming that the root directory for apache is configured to have git intialized, to schedule a crontab, run the following command: 
+
+> $ crontab -e
+
+Once a text editor opens, add the following line at the end of file 
+
+> 0 0 * * * cd /var/www/html/SWE_Group10 && sudo git pull 
+
+Save the file and perform a server reboot with the following command to put the new schedule in affect:
+
+> $ sudo reboot
+
