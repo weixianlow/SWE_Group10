@@ -12,6 +12,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="../js/searchManifest.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		function deny(){
+			window.alert("Please log in as a researcher to use this feature");			
+		}
+	</script>
 </head>
 
 <body>
@@ -37,7 +42,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+          	<?php
+        		if($name ==''){
+        			 echo'<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>';
+        		}
+        		else{
+        			echo'<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Logout</b> <span class="caret"></span></a>';
+        		}
+         	?>
 			<ul id="login-dp" class="dropdown-menu">
 				<li>
 					 <div class="row">
@@ -138,6 +150,9 @@
 			echo'<form method = "POST" action = "/html/uploadCreate.php">
 				<button class="col-md-2 ph-button ph-btn-green" type="submit" name="upload_manifest">New Manifest</button>
 			</form>';
+			}
+			else{
+				echo'<button onclick = "deny()" style = "background-color: gray" class="col-md-2 ph-button ph-btn-green" type="submit" name="upload_manifest">New Manifest</button>';
 			}	
 		?>
 			<br>

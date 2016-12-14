@@ -37,7 +37,14 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+	        	<?php
+	        		if($name ==''){
+	        			 echo'<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>';
+	        		}
+	        		else{
+	        			echo'<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Logout</b> <span class="caret"></span></a>';
+	        		}
+	         	?>
 				<ul id="login-dp" class="dropdown-menu">
 					<li>
 						 <div class="row">
@@ -87,8 +94,8 @@
 						$doc = $_SESSION["doc"];
 						*/
 
-						$t = $_POST['title'];
-						echo $t;
+						//$t = $_POST['title'];
+						//echo $t;
 						if(isset($_POST["title"])){
 							$t = $_POST['title'];							
 							$m = new MongoClient();   
@@ -122,19 +129,22 @@
 						';
 
 						
-
+					}
 					?>
 					
 				</div>
-				<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" >
+				<!-- <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" >
 					<input class="col-md-2 ph-button ph-btn-blue" type="submit" value="Download" name="download"\>
 				</form>
 
+				<?php
+					if($permission_level>1){
+				?>
 				<form action="<?=$_SERVER['PHP_SELF']?>" method="POST" >
 					<input class="col-md-2 ph-button ph-btn-green" type="submit" value="Update" name="update"\>
 
 				</form>
-
+ -->
 				<form action="../index.php" method="POST">
 					<input type="hidden" name="data" value="<?php echo $_id; ?>">
 					<input class="col-md-2 ph-button ph-btn-red" type="submit" value="Delete" name="delete"\>
@@ -142,6 +152,7 @@
 
 				<?php
 				}
+				
 				?>
 			
 		</div>
